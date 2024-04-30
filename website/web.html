@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Website</title>
+    <!-- Add icon for tab -->
+    <link rel="icon" href="moon.ico" type="image/x-icon">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #151a28; /* light grey background */
+        }
+        .container {
+            display: flex;
+            height: 100%;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .folder {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .folder:hover {
+            background-color: #555; /* darker grey on hover */
+        }
+        .folder img {
+            width: 30px;
+            margin-right: 10px;
+        }
+        .folder-text {
+            font-size: 18px;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+        .panel {
+            background-color: rgba(94, 89, 89, 0.644); /* semi-transparent white */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff; /* blue */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        #view-count {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="video-background">
+                <!-- Play background videos -->
+                <video autoplay="" muted="" loop="" id="background-video">
+                    <source src="b3.mp4" type="video/mp4">
+                    <source src="car.mp4" type="video/mp4">
+                    <source src="car1.mov" type="video/mp4">
+                    <!-- Add more sources as needed -->
+                    
+                </video>
+                <!-- Add additional video elements for background videos -->
+                <video autoplay="" muted="" loop="" id="background-video2" style="display: none;">
+                    <source src="car.mp4" type="video/mp4">
+                    <!-- Add more sources as needed -->
+                    
+                </video>
+                <!-- Add audio element for music -->
+                <audio autoplay="" loop="" id="background-audio">
+                    <!-- Add multiple source elements for different songs -->
+                    <source src="song1.mp3" type="audio/mpeg">
+                    <source src="song2.mp3" type="audio/mpeg">
+                    <source src="song3.mp3" type="audio/mpeg">
+                    <!-- Add more sources as needed -->
+                    
+                </audio>
+            </div>
+            <div class="overlay">
+                <div class="panel">
+                    <h1>Welcome to</h1>
+                    <h2 style="color: #c75df8;">dasende.shop</h2>
+                    <h2 style="color: #c55634;">Share with your friends!</h2>
+                    <div class="buttons">
+                        <a href="https://www.youtube.com/channel/UCX-1omp3R6HGW2ctki-Mnxw" class="button">YouTube</a>
+                        <a href="https://discord.gg/VkCzWH3PaZ" class="button">Discord</a>
+                        <a href="https://soundcloud.com/pmtias" class="button">SoundCloud</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="view-count">Views: 4</div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            animateTitle();
+        });
+  
+        function animateTitle() {
+            const title = document.title;
+            const originalTitle = "DAS OWNS YOU";
+            let index = 0;
+  
+            setInterval(function () {
+                index = (index + 1) % (originalTitle.length + 4);
+                document.title = originalTitle.substring(0, index);
+                
+            }, 300); 
+        }
+      </script>
+    <script>
+        // Simple script to count views (just for demonstration)
+        let viewCount = localStorage.getItem('viewCount') || 0;
+        viewCount++;
+        localStorage.setItem('viewCount', viewCount);
+        document.getElementById('view-count').textContent = 'Views: ' + viewCount;
+    </script>
+</body>
+</html>
