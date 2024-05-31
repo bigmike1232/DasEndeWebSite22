@@ -170,7 +170,7 @@
             img {
                 display: none; 
             }
-        }
+    }
     </style>
 </head>
 <body>
@@ -193,12 +193,29 @@
 
 </div>
 <audio autoplay="" loop="" id="bg-music">
-    <source src="song1.mp3" type="audio/mpeg">
+    <source src="Song4.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 <div class="mute-button" onclick="toggleMute()">
     <i id="volumeIcon" class="fas fa-volume-up"></i>
 </div>
+<script>
+function toggleMute() {
+    var music = document.getElementById("bg-music");
+    var volumeIcon = document.getElementById("volumeIcon");
+
+    if (music.muted) {
+        music.muted = false;
+        volumeIcon.classList.remove("fa-volume-xmark");
+        volumeIcon.classList.add("fa-volume-up");
+    } else {
+        music.muted = true;
+        volumeIcon.classList.remove("fa-volume-up");
+        volumeIcon.classList.add("fa-volume-xmark");
+    }
+}
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         animateTitle();
