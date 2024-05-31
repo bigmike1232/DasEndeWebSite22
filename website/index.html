@@ -3,165 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Website</title>
-    <!-- Add icon for tab -->
+    <title>Document</title>
     <link rel="icon" href="moon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #394c8000; /* light grey background */
-        }
-        .container {
-            display: flex;
-            height: 100%;
-        }
-        .main-content {
-            flex: 1;
+        .profile-card {
+            background-color: #322f2f;
             padding: 20px;
+            border: 1px solid #404040;
+            border-radius: 20px;
+            width: 400px;
+            height: 400px;
+            font-family: 'Minecraft', sans-serif;
+            margin: 100px auto;
+            background-color: rgba(17, 17, 17, 0.8);
+            position: relative;
+            text-align: center;
         }
-        .folder {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        .folder:hover {
-            background-color: #555; /* darker grey on hover */
-        }
-        .folder img {
-            width: 30px;
-            margin-right: 10px;
-        }
-        .folder-text {
-            font-size: 18px;
-        }
-        .video-background {
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: -1;
-        }
-        .video-background video {
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+
+        .profile-circle {
             position: absolute;
-            top: 50%;
+            top: 1%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
+            background-image: url('exodus.png');
+            background-size: cover;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            z-index: 1;
         }
-        .overlay {
+
+        .name {
+            font-size: 24px;
+            color: rgb(191, 191, 191);
             position: absolute;
+            bottom: 200px;
+            font-family: 'Philly Sans', sans-serif;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 26%;
+            font-size: 50px;
+        }
+
+        .background-video {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: white;
+            object-fit: cover;
+            z-index: -1;
         }
-        .panel {
-            background-color: rgba(94, 89, 89, 0.368); /* semi-transparent white */
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+
+        .status {
+            font-weight: bold;
+            color: #ff0000;
         }
-        .button {
+
+        .github, .discord, .website {
+            font-size: 50px;
+            margin-right: 20px;
+            transition: font-size 0.3s;
             display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff; /* blue */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
+            margin-top: 120px;
         }
-        #view-count {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            color: white;
-            font-weight: bold;
-            z-index: 9999;
+
+        .website:hover {
+            color: rgb(137, 32, 16);
+            font-size: 60px;
+        }
+
+        .website {
+            color: rgb(187, 41, 15);
+        }
+
+        .discord:hover {
+            color: rgb(50, 41, 135);
+            font-size: 60px;
+        }
+
+        .github:hover {
+            color: rgb(78, 9, 88);
+            font-size: 60px;
+        }
+
+        .discord {
+            color: blue;
+        }
+
+        .song {
+            font-style: italic;
+        }
+
+        .discord-handle {
+            font-family: monospace;
+        }
+
+        body {
+            background-color: black;
+            background-image: url('');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            cursor: url('cursor.cur'), auto;
+            overflow-x: hidden;
+        }
+
+        .typewriter-text {
+            color: #ffffff;
+            font-size: 36px;
+            margin: 160px auto 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .mute-button {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgb(0, 0, 0);
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .mute-button i {
+            font-size: 20px;
+            color: red;
+        }
+
+        @media (max-width: 768px) {
+            .profile-card {
+                width: 90%;
+                height: auto;
+                margin: 160px auto 20px; 
+                padding: 20px;
+            }
+
+            .profile-circle {
+                width: 140px;
+                height: 140px;
+            }
+
+            .name {
+                font-size: 100px;
+                left: 50%;
+                top: 125px;
+                transform: translateX(-50%);
+                width: auto;
+            }
+
+            .github, .discord, .website {
+                font-size: 40px;
+                margin-top: 20px;
+                margin-right: 10px;
+            }
+
+            .typewriter-text {
+                font-size: 24px;
+                margin-top: 220px;
+                text-align: center;
+                position: relative;
+            }
+
+            img {
+                display: none; 
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="main-content">
-            <div class="video-background">
-                <!-- Play background videos -->
-                <video autoplay muted loop id="background-video">
-                    <source src="b3.mp4" type="video/mp4">
-                    
-                    Your browser does not support the video tag.
-                </video>
-                <!-- Add additional video elements for background videos -->
-                <video autoplay="" muted="" loop="" id="background-video2" style="display: none;">
-                    <source src="car.mp4" type="video/mp4">
-                    <!-- Add more sources as needed -->
-                    
-                </video>
-                <!-- Add audio element for music -->
-                <audio autoplay="" loop="" id="background-audio">
-                    <!-- Add multiple source elements for different songs -->
-                    <source src="song1.mp3" type="audio/mpeg">
-                    <source src="song2.mp3" type="audio/mpeg">
-                    <source src="song3.mp3" type="audio/mpeg">
-                    <!-- Add more sources as needed -->
-                    
-                </audio>
-            </div>
-            <div class="overlay">
-                <div class="panel">
-                    <h1>Welcome to</h1>
-                    <h2 style="color: #c75df8;">dasende.shop</h2>
-                    <h2 style="color: #c55634;">Share with your friends!</h2>
-                    <div class="buttons">
-                        <a href="https://www.youtube.com/channel/UCX-1omp3R6HGW2ctki-Mnxw" class="button">YouTube</a>
-                        <a href="https://discord.gg/VkCzWH3PaZ" class="button">Discord</a>
-                        <a href="https://soundcloud.com/pmtias" class="button">SoundCloud</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="view-count">Views: 4</div>
 
+<div class="profile-card">
+    <div class="profile-circle"></div>
+    <div class="name">Exodus</div>
+    <h3 class="typewriter-text" id="typewriter">Owner</h3>
+    <img src="https://discord.c99.nl/widget/theme-4/224246165904818176.png" style="position: absolute; border-radius: 10px; margin-left: -90px; margin-top: 30px;">
+    <a href="https://discord.com/users/224246165904818176" class="discord"><i class="fa-brands fa-discord"></i></a>
+    <a href="https://github.com/bigmike1232" class="github"><i class="fa-brands fa-github"></i></a>
+    <a href="https://firearms.mysellix.io" class="website"><i class="fa-brands fa-chrome"></i></a>
+</div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            animateTitle();
-        });
-  
-        function animateTitle() {
-            const title = document.title;
-            const originalTitle = "DAS OWNS YOU";
-            let index = 0;
-  
-            setInterval(function () {
-                index = (index + 1) % (originalTitle.length + 4);
-                document.title = originalTitle.substring(0, index);
-                
-            }, 300); 
-        }
-      </script>
-    <script>
-        // Simple script to count views (just for demonstration)
-        let viewCount = localStorage.getItem('viewCount') || 0;
-        viewCount++;
-        localStorage.setItem('viewCount', viewCount);
-        document.getElementById('view-count').textContent = 'Views: ' + viewCount;
-    </script>
+<div class="video-background">
+    <video autoplay muted loop class="background-video">
+        <source src="b3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+</div>
+<audio autoplay="" loop="" id="bg-music">
+    <source src="song1.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<div class="mute-button" onclick="toggleMute()">
+    <i id="volumeIcon" class="fas fa-volume-up"></i>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        animateTitle();
+    });
+
+    function animateTitle() {
+        const title = document.title;
+        const originalTitle = "EXO OWNS YOU";
+        let index = 0;
+
+        setInterval(function () {
+            index = (index + 1) % (originalTitle.length + 4);
+            document.title = originalTitle.substring(0, index);
+        }, 300);
+    }
+</script>
 </body>
 </html>
